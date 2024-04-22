@@ -46,8 +46,8 @@ Admin?
 2. Use-case - funkció lista:
 
 -Látogató:
-    -tud regisztrálni (név, e-mail, szül. idő /18 éves elmúlt-e/,
-     jelszó)
+    -tud regisztrálni (név, felhasználónév, e-mail, szül. idő /18 éves elmúlt-e/,
+     jelszó, ÁSZF - Általános Szerződési Feltételek elfogadása??, jegyezzük a regisztráció dátumát)
     -ha ugyanazzal az e-mail-lel akar regisztrálni, akkor ne engedjük -> legyen ellenőrzés, hogy regisztrált-e már (ilyenkor látogatónak hívjuk azt az embert is, aki már regisztrált a rendszerbe, de elfelejtette)
     -ha regisztrált már (korábban vagy az adott session-ben), akkor be tud jelentkezni
 
@@ -57,9 +57,11 @@ Admin?
     -tudja "lájkolni" a tweet-et
     -ha rákattint egy másik felhasználóra, akkor lássuk a másik felhasználó adatait, tweet-jeit (posztjait)
     -ha saját profiljára kattint, akkor is lássa a saját posztjait, bejegyzéseit, tweet-jeit (esetleg annyiban különbözzön a többi felhasználó oldalától, hogy legyen egy Edit profile (Profil szerkesztése) gomb)
+    -Profil szerkesztés: lehessen profilképet feltölteni, esetleg borítóképet feltölteni, Tartózkodási helyet (várost) beállítani
     -visszafelé mutató gomb (visszamenjen az előző oldalra (vagy meghatározott oldalra))
     Opcionális funkciók:
-        -adatainak módosítása (profil edit) kérdés, hogy engedjük-e  megváltoztatni az e-mail címét (nem szokás)
+        -regisztráció social account-tal (facebook, google)
+        -adatainak módosítása (profil edit) kérdés, hogy engedjük-e  megváltoztatni az e-mail címét (inkább másodlagos e-mail cím hozzáadása?)
         -születési idő megváltoztatása?? (ha jól adta meg, felesleges, ha nem, akkor kéne valami megoldás rá... egyszer engedjük változtatni, utána többet nem?)
         -jelszó megváltoztatása (küldjünk róla e-mail-t, hogy megváltoztatás)
         -retweet funkció (újratweeteli a posztot, újraposztolja a tweet-et)
@@ -69,11 +71,7 @@ Admin?
 
 =====================================
 
-Fejlesztési lehetőségek:
-
-
-
-Endpoint-ok:
+Route-ok /Endpoint-ok/:
 
 GET / (/home)		Főoldal endpoint (nincs bejelentkezve: login/reg screen, ha be van, akkor főoldal (tweet folyam))
 GET /registration   Regisztrációs form betöltése
