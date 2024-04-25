@@ -1,0 +1,29 @@
+<%- include('header') %>
+
+    <body>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 justify-content-center d-flex">
+                    <i class="fa-brands fa-node logo"></i>
+                </div>
+                <% loggedIn=false; if (!loggedIn) { %>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <%- include('user/login') %>
+                    </div>
+                    <% } else { %>
+                        <div class="row my-3">
+                            <div class="col-12 col-lg-6">
+                                <%- include('uploadForm') %>
+                            </div>
+                            <div class="col-12 col-lg-8">
+                                <%- include('sessionCounter') %>
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex justify-content-center flex-column ">
+                            <%- include('images') %>
+                        </div>
+                        <% } %>
+            </div>
+    </body>
+
+    <%- include('footer') %>

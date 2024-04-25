@@ -1,0 +1,12 @@
+body {
+    background-color: var(--bs-gray-dark);
+    color: var(--bs-white);
+}
+
+.login-form {
+    height: 100vh;
+}
+
+.logo {
+    font-size: 100px;
+}
