@@ -30,9 +30,11 @@ Látogató:
 Regisztrált felhasználó
     -Lehetőség van regisztrációra
     -Regisztráció: legyen e-mail validálás vagy sem? (Ha nincs egyből beléptethetjük a user-t, ha van, akkor még validálnia kell az e-mail címét...)
-    -Tud tweet-et posztolni
-    -Tud tweet-et törölni (csak a sajátját értelemszerűen)
-    -Tud tweet-et módosítani (szintén csak a sajátját)
+    -Elfelejtett jelszó? (e-mail kiküldés linkkel -> kattra új jelszót adhat meg a felhasználó (jelszó és jelszó megerősítés) ha még nem regisztrált (a megadott e-mail cím nincs a regisztrált felhasználók között, akkor hiba, hogy nincs ilyen user a rendszerben))
+    Bejelentkezés után:
+        -Tud tweet-et posztolni
+        -Tud tweet-et törölni (csak a sajátját értelemszerűen)
+        -Tud tweet-et módosítani (szintén csak a sajátját)
     -Tweet-ek láthatósága nem módosítható, mindig publikus
 
 További felhasználók (opcionális):
@@ -73,9 +75,22 @@ Admin?
 
 Route-ok /Endpoint-ok/:
 
-GET / (/home)		Főoldal endpoint (nincs bejelentkezve: login/reg screen, ha be van, akkor főoldal (tweet folyam))
-GET /registration   Regisztrációs form betöltése
-POST /registration  Regisztráció, azután vissza a főoldalra vagy a felhasználó bejelentkeztetése (attól függően, hogy kell-e e-mail validálás)
-GET /userlist       Felhasználók listája
-GET /user/:id       Egy felhasználóhoz tartozó tweetek listázása
-GET /tweets
+GET / (/home)		    Főoldal endpoint (nincs bejelentkezve: login/reg screen, ha be van, akkor főoldal (tweet folyam))
+GET /registration       Regisztrációs form betöltése
+POST /registration      Regisztráció, azután vissza a főoldalra vagy a felhasználó bejelentkeztetése (attól függően, hogy kell-e e-mail validálás)
+GET /forgotpassword     Elfelejtett jelszó kérő form oldal
+POST /forgotpassword    Elfelejtett jelszóhoz új jelszó kérés link kiküldése
+GET /userlist           Felhasználók listája
+GET /user/:id           Egy felhasználóhoz tartozó tweetek listázása
+
+
+Hogyan futtasd? (How to run?)
+
+node --env-file=.env app.js
+
+dev env:
+node --env-file=.env --env-file=.development.env app.js
+
+Useful links:
+
+https://nodejs.org/en/learn/command-line/how-to-read-environment-variables-from-nodejs  <- dotenv

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Twitter-klón app",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,5 +12,16 @@
     "app"
   ],
   "author": "Balint Csertan",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "multer": "^1.4.5-lts.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0"
+  }
 }
