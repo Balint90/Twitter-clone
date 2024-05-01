@@ -1,0 +1,27 @@
+body {
+    background-color: #1C1C1C;
+    color: var(--bs-white);
+}
+
+.login-form {
+    min-width: 300px;
+    /* height: 100vh; */
+}
+
+.big_logo {
+    width: 350px;
+    height: 350px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+}
+
+.full_min_height {
+    min-height: 100dvh;
+}
+
+.input-group-append {
+    cursor: pointer;
+}

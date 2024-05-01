@@ -15,8 +15,6 @@ const port = process.env.PORT;
 
 app.use(express.static(__dirname + '/public'));
 
-// app.use(express.static("uploads"));
-
 initSession(app);
 
 if (process.env.NODE_ENV === 'development') {
@@ -30,5 +28,3 @@ addRoutes(app);
 app.listen(port, function () {
     console.log(`Running on port ${port}`);
 })
-
-

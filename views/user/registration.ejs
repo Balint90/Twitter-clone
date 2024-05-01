@@ -1,0 +1,33 @@
+<%- include('../header') %>
+
+
+    <div
+        class="full_min_height col-12 d-flex flex-column justify-content-center align-content-center align-items-center">
+        <div class="login-form align-content-center">
+            <h6 class="mb-3">Fiók létrehozása</h6>
+            <form method=" post" action="/login" enctype="multipart/form-data">
+                <div class="form-outline mb-4">
+                    <input type="text" id="name" name="name" placeholder="Név" class="form-control rounded-pill" />
+                </div>
+                <div class="form-outline mb-4">
+                    <input type="email" id="email" name="email" placeholder="E-mail cím"
+                        class="form-control rounded-pill" />
+                </div>
+
+                <div class="form-outline mb-4">
+                    <input type="password" id="password" name="password" placeholder="Jelszó"
+                        class="form-control rounded-pill" />
+                </div>
+
+                <div class="form-outline mb-4">
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Jelszó megerősítése"
+                        class="form-control rounded-pill" />
+                </div>
+
+
+
+                <input type="submit" value="Regisztráció" class="btn btn-primary btn-block mb-4 w-100 rounded-pill" />
+            </form>
+        </div>
+    </div>
+    <%- include('../footer') %>

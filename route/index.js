@@ -5,13 +5,14 @@ import { upload } from "../middleware/upload.js";
 import { auth } from "../middleware/auth.js";
 
 export function addRoutes(app) {
-    app.get('/', (req, res, next) => {
-        next();
-    }, render("index"));
+    app.get('/', render("index"));
+
+    app.get('/registration', render("user/registration"));
 
     //not existing route handler
     app.use(function (req, res) {
-        res.status(404).send({ url: req.originalUrl + ' not found' });
+        // res.status(404).send({ url: req.originalUrl + ' not found' });
+        res.status(404).render('notfound/notfound')
     });
 
     //Express final error handler (catches errors which not handled in modules)

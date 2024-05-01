@@ -45,7 +45,7 @@ Admin?
 
 =====================================
 
-2. Use-case - funkció lista:
+2. Use-case - funkció lista
 
 -Látogató:
     -tud regisztrálni (név, felhasználónév, e-mail, szül. idő /18 éves elmúlt-e/,
@@ -54,7 +54,7 @@ Admin?
     -ha regisztrált már (korábban vagy az adott session-ben), akkor be tud jelentkezni
 
 -Felhasználó (regisztrált látogató):
-    -ki tud jelentkezni... (obviously)
+    -ki tud jelentkezni...
     -meg tudja nézni a felhasználók tweet-jeit
     -tudja "lájkolni" a tweet-et
     -ha rákattint egy másik felhasználóra, akkor lássuk a másik felhasználó adatait, tweet-jeit (posztjait)
@@ -73,7 +73,18 @@ Admin?
 
 =====================================
 
-Route-ok /Endpoint-ok/:
+3. Magas szintű rendszerterv:
+KÉP KELL IDE
+
+
+
+=====================================
+
+4. Screenek
+
+=====================================
+
+5. Route-ok /Endpoint-ok/:
 
 GET / (/home)		    Főoldal endpoint (nincs bejelentkezve: login/reg screen, ha be van, akkor főoldal (tweet folyam))
 GET /registration       Regisztrációs form betöltése
@@ -83,6 +94,17 @@ POST /forgotpassword    Elfelejtett jelszóhoz új jelszó kérés link kiküld�
 GET /userlist           Felhasználók listája
 GET /user/:id           Egy felhasználóhoz tartozó tweetek listázása
 
+=====================================
+
+6. Middleware-ek
+
+=====================================
+
+7. Modellek
+
+=====================================
+
+8. Implementáció
 
 Hogyan futtasd? (How to run?)
 

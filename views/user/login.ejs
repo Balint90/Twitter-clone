@@ -1,56 +1,32 @@
-<div class="login-form align-content-center">
-    <form method="post" action="/login" enctype="multipart/form-data">
-        <!-- Email input -->
-        <div data-mdb-input-init class=" form-outline mb-4">
-            <input type="email" id="form2Example1" name="user" class="form-control" />
-            <label class="form-label" for="form2Example1">Email address</label>
-        </div>
+<div class="d-none d-md-block col-12 col-md-6 d-flex justify-content-center align-content-center">
+    <%- include('../components/logo_big') %>
+</div>
+<div class="d-block d-md-none col-12 d-flex justify-content-center align-content-center align-items-center">
+    <%- include('../components/logo') %>
+</div>
+<div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center">
+    <div class="login-form align-content-center">
+        <form method="post" action="/login" enctype="multipart/form-data">
+            <div class="form-outline mb-4">
+                <input type="email" id="email" name="user" placeholder="E-mail" class="form-control rounded-pill" />
+            </div>
 
-        <!-- Password input -->
-        <div data-mdb-input-init class="form-outline mb-4">
-            <input type="password" id="form2Example2" name="passwd" class="form-control" />
-            <label class="form-label" for="form2Example2">Password</label>
-        </div>
+            <div class="form-outline mb-4">
+                <input type="password" id="password" name="password" placeholder="Jelszó"
+                    class="form-control rounded-pill" />
+            </div>
 
-        <!-- 2 column grid layout for inline styling -->
-        <div class="row mb-4">
-            <div class="col d-flex justify-content-center">
-                <!-- Checkbox -->
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-                    <label class="form-check-label" for="form2Example31"> Remember me </label>
+            <input type="submit" value="Belépés" class="btn btn-primary btn-block mb-4 w-100 rounded-pill" />
+            <div class="row mb-4">
+                <div class="col">
+                    <a href="/forgotpassword">Elfelejtetted jelszavad?</a>
                 </div>
             </div>
-
-            <div class="col">
-                <!-- Simple link -->
-                <a href="#!">Forgot password?</a>
-            </div>
+        </form>
+        <div class="mt-4">
+            <h6 class="mb-2">Nincs még felhasználói fiókod?</h6>
+            <a href="/registration"><button type="button"
+                    class="btn btn-outline-light w-100 rounded-pill">Regisztráció</button></a>
         </div>
-
-        <!-- Submit button -->
-        <input type="submit" value="Sign in" data-mdb-button-init data-mdb-ripple-init
-            class="btn btn-primary btn-block mb-4" />
-
-        <!-- Register buttons -->
-        <div class="text-center">
-            <p>Not a member? <a href="#!">Register</a></p>
-            <p>or sign up with:</p>
-            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                <i class="fab fa-facebook-f"></i>
-            </button>
-
-            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                <i class="fab fa-google"></i>
-            </button>
-
-            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                <i class="fab fa-twitter"></i>
-            </button>
-
-            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                <i class="fab fa-github"></i>
-            </button>
-        </div>
-    </form>
+    </div>
 </div>
