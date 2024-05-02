@@ -21,6 +21,8 @@ initDatabase((err, { db, userModel, tweetModel }) => {
 
     app.use(express.static(__dirname + '/public'));
 
+    app.use(express.urlencoded({ extended: false }));
+
     initSession(app);
 
     if (process.env.NODE_ENV === 'development') {
@@ -29,7 +31,7 @@ initDatabase((err, { db, userModel, tweetModel }) => {
 
     app.set('view engine', 'ejs');
 
-    addRoutes(app);
+    addRoutes(app, db, userModel, tweetModel);
 
     app.listen(port, function () {
         console.log(`Running on port ${port}`);

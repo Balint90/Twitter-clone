@@ -34,3 +34,9 @@ body {
 .input-group-append {
     cursor: pointer;
 }
+
+#nameError,
+#emailError,
+#divCheckPasswordMatch {
+    color: red;
+}

@@ -1,23 +1,26 @@
 import { v4 as uuidv4 } from 'uuid';
 
 import { render } from "../middleware/render.js";
+import { registerUser } from "../middleware/registerUser.js";
 import multer from "multer";
 import fs from "fs";
 import { upload } from "../middleware/upload.js";
 import { auth } from "../middleware/auth.js";
 
-export function addRoutes(app) {
+export function addRoutes(app, db, userModel, tweetModel) {
 
-    // const objRep = {
-    //     tweetModel,
-    //     db,
-    //     uuidv4,
-    //     search,
-    // }
+    const objRep = {
+        userModel,
+        tweetModel,
+        db,
+        uuidv4,
+    }
 
     app.get('/', render("index"));
 
     app.get('/registration', render("user/registration"));
+
+    app.post('/registration', registerUser(objRep), render("index"));
 
     app.get('/forgotPassword', render("user/forgotPassword"));
 
