@@ -7,24 +7,31 @@ import { fileURLToPath } from "url";
 import path from "path";
 import { upload } from "./middleware/upload.js";
 import { initSession } from "./middleware/session.js";
+import { initDatabase } from "./service/db.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 const port = process.env.PORT;
 
-app.use(express.static(__dirname + '/public'));
+initDatabase((err, { db, userModel, tweetModel }) => {
+    if (err) {
+        return console.err(err);
+    }
 
-initSession(app);
+    app.use(express.static(__dirname + '/public'));
 
-if (process.env.NODE_ENV === 'development') {
-    app.use(morgan("combined"));
-}
+    initSession(app);
 
-app.set('view engine', 'ejs');
+    if (process.env.NODE_ENV === 'development') {
+        app.use(morgan("combined"));
+    }
 
-addRoutes(app);
+    app.set('view engine', 'ejs');
 
-app.listen(port, function () {
-    console.log(`Running on port ${port}`);
+    addRoutes(app);
+
+    app.listen(port, function () {
+        console.log(`Running on port ${port}`);
+    })
 })

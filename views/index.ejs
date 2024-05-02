@@ -1,25 +1,22 @@
 <%- include('header') %>
+    <div class="container">
+        <%- include('components/menu') %>
+    </div>
 
-    <body>
-        <div class="container">
-            <div class="row justify-content-center full_min_height">
+    <div class="container three-quarter-min-height align-content-center ">
+        <div class="row justify-content-center h-100">
+            <div class="d-flex w-100">
                 <% loggedIn=false; if (!loggedIn) { %>
                     <%- include('user/login') %>
                         <% } else { %>
                             <div class="col-12 col-md-6 justify-content-center d-flex">
                                 <div class="row my-3">
-                                    <div class="col-12 col-lg-6">
-                                        <%- include('uploadForm') %>
-                                    </div>
-                                    <div class="col-12 col-lg-8">
-                                        <%- include('sessionCounter') %>
-                                    </div>
-                                </div>
-                                <div class="col-12 d-flex justify-content-center flex-column ">
-                                    <%- include('images') %>
+                                    Loggedin
                                 </div>
                                 <% } %>
                             </div>
-    </body>
+            </div>
+        </div>
+    </div>
 
     <%- include('footer') %>

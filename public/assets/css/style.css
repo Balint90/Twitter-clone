@@ -1,6 +1,7 @@
 body {
     background-color: #1C1C1C;
     color: var(--bs-white);
+    min-height: 100%;
 }
 
 .login-form {
@@ -18,8 +19,16 @@ body {
     height: 40px;
 }
 
-.full_min_height {
+.full-min-height {
     min-height: 100dvh;
+}
+
+.half-min-height {
+    min-height: 50dvh;
+}
+
+.three-quarter-min-height {
+    min-height: 75dvh;
 }
 
 .input-group-append {
