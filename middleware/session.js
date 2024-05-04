@@ -7,6 +7,5 @@ export const initSession = (app) => {
         secret: crypto.randomBytes(64).toString('hex'),
         resave: false,
         saveUninitialized: true,
-        cookie: { secure: true },
     }))
 }

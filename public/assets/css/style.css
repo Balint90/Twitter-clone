@@ -35,6 +35,7 @@ body {
     cursor: pointer;
 }
 
+#generalError,
 #nameError,
 #emailError,
 #divCheckPasswordMatch {

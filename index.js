@@ -5,8 +5,8 @@ import { addRoutes } from "./route/index.js";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import path from "path";
-import { upload } from "./middleware/upload.js";
 import { initSession } from "./middleware/session.js";
+import { checkLogin } from "./middleware/user/checkLogin.js"
 import { initDatabase } from "./service/db.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -14,7 +14,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const port = process.env.PORT;
 
-initDatabase((err, { db, userModel, tweetModel }) => {
+initDatabase((err, { userModel, tweetModel, saveDB }) => {
     if (err) {
         return console.err(err);
     }
@@ -25,13 +25,15 @@ initDatabase((err, { db, userModel, tweetModel }) => {
 
     initSession(app);
 
+    // app.use(checkLogin(userModel));
+
     if (process.env.NODE_ENV === 'development') {
         app.use(morgan("combined"));
     }
 
     app.set('view engine', 'ejs');
 
-    addRoutes(app, db, userModel, tweetModel);
+    addRoutes(app, userModel, tweetModel, saveDB);
 
     app.listen(port, function () {
         console.log(`Running on port ${port}`);

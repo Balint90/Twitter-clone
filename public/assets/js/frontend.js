@@ -55,5 +55,16 @@ $(document).ready(function () {
             event.preventDefault();
         }
     });
+
+    $("#newPasswordForm").submit(function (event) {
+        const password = $("#password").val();
+        const confirmPassword = $("#confirmPassword").val();
+
+        checkPasswordMatch();
+
+        if (password != confirmPassword || password.length === 0) {
+            event.preventDefault();
+        }
+    });
 });
 

@@ -1,0 +1,8 @@
+<% if (typeof errors !=='undefined' ) { %>
+    <% for (let i=0;i<errors.length; i++) { let error=errors[i]; %>
+        <div class="alert alert-danger alert-dismissible fade show rounded-pill" role="alert">
+            <%= error %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <% } %>
+            <% } %>

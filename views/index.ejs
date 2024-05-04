@@ -6,17 +6,18 @@
     <div class="container three-quarter-min-height align-content-center ">
         <div class="row justify-content-center h-100">
             <div class="d-flex w-100">
-                <% loggedIn=false; if (!loggedIn) { %>
-                    <%- include('user/login') %>
-                        <% } else { %>
+                <!-- <%# loggedIn=false; if (!loggedIn) { %>
+                    <%#- include('user/login') %>
+                        <%# } else { %>
+                            
                             <div class="col-12 col-md-6 justify-content-center d-flex">
                                 <div class="row my-3">
                                     Loggedin
                                 </div>
-                                <% } %>
-                            </div>
+                                <%# } %>
+                            </div> -->
+                <h5>Bejegyzések oldala</h5>
             </div>
         </div>
-    </div>
 
-    <%- include('footer') %>
+        <%- include('footer') %>

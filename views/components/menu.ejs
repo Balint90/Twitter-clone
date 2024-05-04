@@ -7,11 +7,17 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
-                <% loggedin=true; if (loggedin) { %>
+                <% if (typeof loggedin !=="undefined" ) { %>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Kijelentkezés</a>
+                        <form method="post" action="/logout">
+                            <input type="submit" class="nav-link" value="Kijelentkezés" />
+                        </form>
                     </li>
-                    <% } %>
+                    <% } else { %>
+                        <li class="nav-item">
+                            <a href="/login" class="nav-link">Bejelentkezés</a>
+                        </li>
+                        <% } %>
             </ul>
         </div>
     </div>

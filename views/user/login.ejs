@@ -1,29 +1,48 @@
-<div class="d-none d-md-flex col-12 col-md-6 justify-content-center align-content-center">
-    <%- include('../components/logo_big') %>
-</div>
-<div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center">
-    <div class="login-form align-content-center">
-        <form method="post" action="/login" enctype="multipart/form-data">
-            <div class="form-outline mb-4">
-                <input type="email" id="email" name="user" placeholder="E-mail" class="form-control rounded-pill" />
-            </div>
+<%- include('../header') %>
+    <div class="container">
+        <%- include('../components/menu') %>
+    </div>
 
-            <div class="form-outline mb-4">
-                <input type="password" id="password" name="password" placeholder="Jelszó"
-                    class="form-control rounded-pill" />
-            </div>
+    <div class="container three-quarter-min-height align-content-center ">
+        <div class="row justify-content-center h-100">
+            <div class="d-flex w-100">
+                <div class="d-none d-md-flex col-12 col-md-6 justify-content-center align-content-center">
+                    <%- include('../components/logo_big') %>
+                </div>
+                <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center">
+                    <div class="login-form align-content-center">
 
-            <input type="submit" value="Belépés" class="btn btn-primary btn-block mb-4 w-100 rounded-pill" />
-            <div class="row mb-4">
-                <div class="col">
-                    <a href="/forgotpassword">Elfelejtetted jelszavad?</a>
+                        <form method="post" action="/login">
+                            <div class="form-outline mb-4">
+                                <input type="email" id="email" name="email" placeholder="E-mail"
+                                    class="form-control rounded-pill" />
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <input type="password" id="password" name="password" placeholder="Jelszó"
+                                    class="form-control rounded-pill" />
+                            </div>
+
+                            <input type="submit" value="Belépés"
+                                class="btn btn-primary btn-block mb-4 w-100 rounded-pill" />
+
+                            <%- include('../components/errors') %>
+
+                                <div class="row mb-4">
+                                    <div class="col">
+                                        <a href="/forgotpassword">Elfelejtetted jelszavad?</a>
+                                    </div>
+                                </div>
+                        </form>
+                        <div class="mt-4">
+                            <h6 class="mb-2">Nincs még felhasználói fiókod?</h6>
+                            <a href="/registration"><button type="button"
+                                    class="btn btn-outline-light w-100 rounded-pill">Regisztráció</button></a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </form>
-        <div class="mt-4">
-            <h6 class="mb-2">Nincs még felhasználói fiókod?</h6>
-            <a href="/registration"><button type="button"
-                    class="btn btn-outline-light w-100 rounded-pill">Regisztráció</button></a>
         </div>
     </div>
-</div>
+
+    <%- include('../footer') %>

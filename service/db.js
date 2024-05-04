@@ -24,10 +24,15 @@ export function initDatabase(callBack) {
                 return callBack(err);
             }
 
+            //remove in production
             console.table(tweetModel.find());
             console.table(userModel.find());
 
-            callBack(undefined, { db, userModel, tweetModel });
+            return callBack(undefined, {
+                userModel, tweetModel, saveDB: (cb) => {
+                    db.saveDatabase(cb);
+                }
+            });
         });
     });
 }
