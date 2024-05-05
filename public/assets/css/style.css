@@ -10,6 +10,11 @@ body {
     /* height: 100vh; */
 }
 
+.userlist {
+    width: 500px;
+    max-width: 600px;
+}
+
 .big_logo {
     width: 350px;
     height: 350px;

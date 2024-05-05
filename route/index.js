@@ -11,6 +11,8 @@ import { logout } from '../middleware/user/logout.js';
 import { auth } from "../middleware/user/auth.js";
 import { modifyUser } from '../middleware/user/modifyUser.js';
 import { getLoggedInUser } from '../middleware/user/getLoggedInUser.js';
+import { getUserList } from '../middleware/user/getUserList.js';
+import { getTweetsForUser } from '../middleware/tweet/getTweetsForUser.js';
 import { createTweet } from '../middleware/tweet/createTweet.js';
 import { getTweet } from '../middleware/tweet/getTweet.js';
 import { getTweets } from '../middleware/tweet/getTweets.js';
@@ -36,7 +38,7 @@ export function addRoutes(app, userModel, tweetModel, saveDB) {
 
     app.post('/login', loginUser(objRep), redirectToHome);
 
-    app.post('/logout', logout(objRep));
+    app.post('/logout', logout(objRep), redirectToHome);
 
     app.get('/forgotpassword', render("user/forgotPassword"));
 
@@ -45,6 +47,10 @@ export function addRoutes(app, userModel, tweetModel, saveDB) {
     app.get('/newpassword/:userid/:secret', render("user/resetPassword"));
 
     app.post('/newpassword/:userid/:secret', getUserByPWDSecret(objRep), modifyUser(objRep, 'password'), render("user/resetPassword"));
+
+    app.get('/userlist', getLoggedInUser(objRep), getUserList(objRep), render("user/userList"));
+
+    app.get('/user/:userid', getLoggedInUser(objRep), getTweetsForUser(objRep), render("user/userTweets"));
 
     //tweet routes
 

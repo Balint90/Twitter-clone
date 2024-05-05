@@ -1,0 +1,42 @@
+<%- include('../header') %>
+    <div class="container">
+        <%- include('../components/menu') %>
+    </div>
+
+    <div class="container three-quarter-min-height align-content-start">
+        <div class="row justify-content-center h-100">
+            <div class="d-flex flex-column userlist">
+                <%if (typeof userTweets !=='undefined' ) {%>
+                    <h6>
+                        <%- ownerName %> tweetjei
+                    </h6>
+                    <% for (let i=0; i < userTweets.length; i++) { let createdDate=new
+                        Date(userTweets[i].created_at).toLocaleDateString() %>
+                        <div>
+                            <h6>
+                                <%= userTweets[i].text %>
+                            </h6>
+                            <div class="d-flex justify-content-between">
+                                <div class="d-flex flex-column align-content-end">
+                                    <small class="text-info">
+                                        <%= userTweets[i].owner.name %>
+                                    </small>
+                                    <small class="text-info">
+                                        <%= createdDate %>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <% } %>
+                            <% } %>
+            </div>
+            <div class="d-flex justify-content-end ">
+                <a href="/userlist">
+                    <button type=" button" class="btn btn-info">
+                        < Vissza </button>
+                </a>
+            </div>
+        </div>
+
+        <%- include('../footer') %>

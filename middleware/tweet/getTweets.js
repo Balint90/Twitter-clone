@@ -7,7 +7,7 @@
 export const getTweets = (objRep) => {
     const { userModel, tweetModel } = objRep;
     return (req, res, next) => {
-        const tweets = tweetModel.chain().data();
+        const tweets = tweetModel.chain().find({ deleted_at: null }).data();
 
         const tweetsWithOwners = tweets.map((tweet) => {
             const owner = userModel.findOne({ id: tweet.user_id });

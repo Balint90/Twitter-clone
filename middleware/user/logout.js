@@ -4,7 +4,7 @@ export const logout = (objRep) => {
             if (err) {
                 return next(err);
             }
-            return res.redirect("/");
+            return next();
         });
     }
 }
