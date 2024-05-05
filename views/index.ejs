@@ -3,20 +3,72 @@
         <%- include('components/menu') %>
     </div>
 
-    <div class="container three-quarter-min-height align-content-center ">
+    <div class="container three-quarter-min-height  ">
         <div class="row justify-content-center h-100">
-            <div class="d-flex w-100">
-                <!-- <%# loggedIn=false; if (!loggedIn) { %>
-                    <%#- include('user/login') %>
+            <div class="d-flex flex-column w-100 justify-content-center ">
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                        <% if (typeof userid !=="undefined" ) { %>
+                            <%- include('tweet/newTweetForm') %>
+                                <% } %>
+                                    <%if (typeof tweets !=='undefined' ) {%>
+                                        <div class="d-flex flex-column ">
+                                            <% for (let i=0; i < tweets.length; i++) { if(!tweets[i].deleted_at) { let
+                                                createdDate=new Date(tweets[i].created_at).toLocaleDateString() %>
+                                                <div>
+                                                    <h6>
+                                                        <%= tweets[i].text %>
+                                                    </h6>
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="d-flex flex-column align-content-end">
+                                                            <small class="text-info">
+                                                                <%= tweets[i].owner.name %>
+                                                            </small>
+                                                            <small class="text-info">
+                                                                <%= createdDate %>
+                                                            </small>
+                                                        </div>
+                                                        <% if (typeof userid !=="undefined" &&
+                                                            tweets[i].owner.id===userid) {%>
+                                                            <div class="d-flex">
+                                                                <small class=" m-1">
+                                                                    <form action="/deletetweet/<%= tweets[i].id %>"
+                                                                        method="post">
+                                                                        <button class="btn btn-sm btn-dark"
+                                                                            type="submit">
+                                                                            <i class=" fa-regular fa-trash-can"></i>
+                                                                        </button>
+                                                                    </form>
+                                                                </small>
+                                                                <small class="m-1">
+                                                                    <form action="/edittweet/<%= tweets[i].id %>"
+                                                                        method="get">
+                                                                        <button class="btn btn-sm btn-dark"
+                                                                            type="submit">
+                                                                            <i class="fa-solid fa-pen-to-square"></i>
+                                                                        </button>
+                                                                    </form>
+                                                                </small>
+                                                            </div>
+                                                            <% }%>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <% } %>
+                                                    <% } %>
+                                        </div>
+                                        <% } %>
+                    </div>
+                </div>
+                <!-- <%#- include('user/login') %>
                         <%# } else { %>
-                            
+
                             <div class="col-12 col-md-6 justify-content-center d-flex">
                                 <div class="row my-3">
                                     Loggedin
                                 </div>
                                 <%# } %>
                             </div> -->
-                <h5>Bejegyzések oldala</h5>
             </div>
         </div>
 

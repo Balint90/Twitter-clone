@@ -6,7 +6,6 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 import path from "path";
 import { initSession } from "./middleware/session.js";
-import { checkLogin } from "./middleware/user/checkLogin.js"
 import { initDatabase } from "./service/db.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -24,8 +23,6 @@ initDatabase((err, { userModel, tweetModel, saveDB }) => {
     app.use(express.urlencoded({ extended: false }));
 
     initSession(app);
-
-    // app.use(checkLogin(userModel));
 
     if (process.env.NODE_ENV === 'development') {
         app.use(morgan("combined"));

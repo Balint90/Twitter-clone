@@ -1,7 +1,15 @@
-<hr>
-<form method="post" action="/newtweet">
-    <div class="mb-3">
-        <input type="text" class="form-control" id="newtweet" name="newtweet" placeholder="Mi történik épp most?">
-    </div>
-    <button type="submit" class="btn btn-primary">Tweet</button>
-</form>
+<div class="d-flex flex-column ">
+    <form method="post" action="/newtweet">
+        <div class="d-flex flex-column align-items-end ">
+            <div class="w-100 mb-3">
+                <textarea class="new-tweet form-control text-bg-dark light-placeholder" id="newtweet" name="newtweet"
+                    placeholder="Mi történik épp most?"></textarea>
+            </div>
+            <div class="d-flex align-content-end ">
+                <button type="submit" id="tweetBtn" disabled class="btn btn-primary rounded-pill tweet-button">
+                    Tweet</button>
+            </div>
+        </div>
+    </form>
+    <hr>
+</div>

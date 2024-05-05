@@ -2,6 +2,22 @@ import loki from 'lokijs';
 
 const db = new loki('twitter_clone.db');
 
+/**
+ * User:
+ * -ID
+ * -name
+ * -password
+ * -email
+ * -secret (jelszóvisszaállításhoz)
+ * 
+ * Tweet
+ * -ID
+ * -userid
+ * -created_at
+ * -modified_at
+ * -deleted_at
+ */
+
 export function initDatabase(callBack) {
     db.loadDatabase({}, err => {
         if (err) {

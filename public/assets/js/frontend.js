@@ -36,10 +36,24 @@ function checkPasswordMatch() {
     }
 }
 
+function checkTweetLength() {
+    const tweet = $(this).val();
+    const tweetButtonId = this.id === "newtweet" ? "#tweetBtn" : "#tweetModBtn";
+    const tweetBtn = $(tweetButtonId);
+
+    if (tweet.length === 0) {
+        tweetBtn.prop("disabled", true);
+    } else {
+        tweetBtn.prop("disabled", false);
+    }
+}
+
 $(document).ready(function () {
     $("#name").keyup(checkName);
     $("#email").keyup(checkEmail);
     $("#confirmPassword").keyup(checkPasswordMatch);
+    $("#newtweet").keyup(checkTweetLength);
+    $("#edittweet").keyup(checkTweetLength);
 
     $("#registerForm").submit(function (event) {
         const name = $("#name").val();

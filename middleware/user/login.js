@@ -31,8 +31,7 @@ export const loginUser = (objRep) => {
             if (err) {
                 return next(err);
             }
-            res.locals.loggedin = true;
-            return res.redirect("/");
+            return next();
         });
     }
 }
